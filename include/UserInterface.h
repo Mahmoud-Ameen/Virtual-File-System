@@ -1,0 +1,13 @@
+
+#ifndef VIRTUAL_FILE_SYSTEM_USERINTERFACE_H
+#define VIRTUAL_FILE_SYSTEM_USERINTERFACE_H
+
+class UserInterface{
+
+public:
+    void run();
+
+};
+
+
+#endif //VIRTUAL_FILE_SYSTEM_USERINTERFACE_H
