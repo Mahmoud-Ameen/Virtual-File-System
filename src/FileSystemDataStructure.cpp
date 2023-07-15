@@ -260,5 +260,14 @@ TreeNode *FileSystemDataStructure::getTreePresentation() const {
     return getTreePresentation(currentDir);
 }
 
+FileSystemDataStructure *FileSystemDataStructure::getInstance() {
+    // if no instance was created, create an instance and return it
+    // else return the existing instance
+    if(!instance)
+        instance = new FileSystemDataStructure();
+
+    return instance;
+}
+
 
 

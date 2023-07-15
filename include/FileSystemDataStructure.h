@@ -8,10 +8,16 @@
 
 #include <TreeNode.h>
 
+/*
+ * The FileSystemDataStructure class follows the singleton design pattern to provide a centralized and globally accessible
+ * instance of the file system's directory structure. This ensures consistency and simplifies access to the file system across
+ * different components of the application.
+ * */
 class FileSystemDataStructure{
 private:
     /** private class Node representing a File system Tree Node **/
     class Node{
+
     public:
         /* constructors  */
         Node(const std::string &name, bool file);
@@ -58,9 +64,8 @@ private:
 
 public:
 
-    /** Constructors */
-
-    FileSystemDataStructure();
+    /** singleton getInstance() */
+    FileSystemDataStructure* getInstance();
 
     /** Constant Methods */
 
@@ -121,6 +126,10 @@ public:
      * */
     void renameFile(std::string& initialFileName, std::string& newFileName);
 private:
+
+    /** Singleton private constructor & instance **/
+    FileSystemDataStructure();
+    FileSystemDataStructure* instance = nullptr;
 
     /** Private Data Members **/
     Node* root = nullptr;           // The root node of the file system data structure
