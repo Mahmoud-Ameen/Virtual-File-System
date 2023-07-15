@@ -62,74 +62,74 @@ private:
 
     };
 
-public:
+    public:
 
-    /** singleton getInstance() */
-    FileSystemDataStructure* getInstance();
+        /** singleton getInstance() */
+        static FileSystemDataStructure* getInstance();
 
-    /** Constant Methods */
+        /** Constant Methods */
 
-    /**
-   * get directories inside current directory
-   * @returns a vector of Node* (Directories), returns an empty vector if current directory is null
-   * */
-    std::vector<Node*> getDirectories() const;
-    /**
-     * get files inside current directory
-     * @returns a vector of Node* (Files), returns an empty vector if current directory is null
-     * */
-    std::vector<Node*> getFiles() const;
+        /**
+       * get directories inside current directory
+       * @returns a vector of Node* (Directories), returns an empty vector if current directory is null
+       * */
+        std::vector<Node*> getDirectories() const;
+        /**
+         * get files inside current directory
+         * @returns a vector of Node* (Files), returns an empty vector if current directory is null
+         * */
+        std::vector<Node*> getFiles() const;
 
-    /**
-     * presents the currentDirectory file Hierarchy in a tree data structure form
-     * driver for the recursive function getTreePresentation
-     * @return TreeNode pointer to the root
-     * */
-    TreeNode *getTreePresentation() const ;
+        /**
+         * presents the currentDirectory file Hierarchy in a tree data structure form
+         * driver for the recursive function getTreePresentation
+         * @return TreeNode pointer to the root
+         * */
+        TreeNode *getTreePresentation() const ;
 
 
-    /** Non-Constant Methods */
+        /** Non-Constant Methods */
 
-    /**
-     * Add a directory to the current Directory.
-     * @param directoryName The name of the directory to be added.
-     */
-    void createDirectory(const std::string & directoryName);
-    /**
-     * Add a file to the current Directory.
-     * @param fileName The name of the file to be added.
-     */
-    void createFile(const std::string& fileName);
-    /**
-     * changes current directory
-     * if directory doesn't exist, report error to ErrorHandling Component
-     * @param directoryName String represents the name of directory to move to
-     * */
-    void changeDirectory(std::string& directoryName);
-    /**
-     * removes a child-directory of current one
-     * if directory doesn't exist or directory isn't empty, an error is reported to ErrorHandling Component
-     * @param directoryName name of directory to be deleted
-     * */
-    void removeDirectory(std::string& directoryName);
-    /**
-     * removes a child-file of current one
-     * if file doesn't exist, an error is reported to ErrorHandling Component
-     * @param fileName name of file to be deleted
-     * */
-    void removeFile(std::string& fileName);
-    /**
-     * renames a child-file of current directory
-     * if file doesn't exist or new filename is empty, an error is reported to ErrorHandling Component
-     * @param initialFileName initial name of file to be renamed
-     * @param newFileName new name the file will be renamed to
-     * */
-    void renameFile(std::string& initialFileName, std::string& newFileName);
+        /**
+         * Add a directory to the current Directory.
+         * @param directoryName The name of the directory to be added.
+         */
+        void createDirectory(const std::string & directoryName);
+        /**
+         * Add a file to the current Directory.
+         * @param fileName The name of the file to be added.
+         */
+        void createFile(const std::string& fileName);
+        /**
+         * changes current directory
+         * if directory doesn't exist, report error to ErrorHandling Component
+         * @param directoryName String represents the name of directory to move to
+         * */
+        void changeDirectory(const std::string &directoryName);
+        /**
+         * removes a child-directory of current one
+         * if directory doesn't exist or directory isn't empty, an error is reported to ErrorHandling Component
+         * @param directoryName name of directory to be deleted
+         * */
+        void removeDirectory(const std::string &directoryName);
+        /**
+         * removes a child-file of current one
+         * if file doesn't exist, an error is reported to ErrorHandling Component
+         * @param fileName name of file to be deleted
+         * */
+        void removeFile(const std::string &fileName);
+        /**
+         * renames a child-file of current directory
+         * if file doesn't exist or new filename is empty, an error is reported to ErrorHandling Component
+         * @param initialFileName initial name of file to be renamed
+         * @param newFileName new name the file will be renamed to
+         * */
+        void renameFile(const std::string &initialFileName, const std::string &newFileName);
 private:
 
     /** Singleton private constructor & instance **/
     FileSystemDataStructure();
-    FileSystemDataStructure* instance = nullptr;
+    static FileSystemDataStructure* instance;
 
     /** Private Data Members **/
     Node* root = nullptr;           // The root node of the file system data structure
@@ -142,7 +142,6 @@ private:
      * @returns a pointer to the directory if found. Returns nullptr if directory not found
      * */
     Node* findDirectory(const std::string& directoryName) const;
-
     /**
      * Helper method to find a file with the given name in the current directory.
      * returns a pointer to the file if found. Returns nullptr if file not found

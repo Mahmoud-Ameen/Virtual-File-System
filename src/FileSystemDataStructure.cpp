@@ -69,6 +69,11 @@ void FileSystemDataStructure::Node::rename(std::string &newName) {
 
 /** FileSystemDataStructure Constructors **/
 
+
+// singleton instance
+static FileSystemDataStructure* instance = nullptr;
+
+
 FileSystemDataStructure::FileSystemDataStructure() {
     root = new Node("Root",false);
     currentDir = root;
@@ -131,7 +136,7 @@ void FileSystemDataStructure::createFile(const std::string &fileName)  {
     }
 }
 
-void FileSystemDataStructure::changeDirectory(std::string &directoryName) {
+void FileSystemDataStructure::changeDirectory(const std::string &directoryName) {
     auto dir = findDirectory(directoryName);
 
     if(dir) {
@@ -142,7 +147,7 @@ void FileSystemDataStructure::changeDirectory(std::string &directoryName) {
     }
 }
 
-void FileSystemDataStructure::removeDirectory(std::string &directoryName) {
+void FileSystemDataStructure::removeDirectory(const std::string &directoryName) {
     auto dir = findDirectory(directoryName);
 
     // guard checks if directory doesn't exist
@@ -161,7 +166,7 @@ void FileSystemDataStructure::removeDirectory(std::string &directoryName) {
     currentDir->removeChild(dir);
 }
 
-void FileSystemDataStructure::removeFile(std::string &fileName) {
+void FileSystemDataStructure::removeFile(const std::string &fileName) {
     auto dir = findDirectory(fileName);
 
     // guard checks if file doesn't exist
@@ -173,7 +178,7 @@ void FileSystemDataStructure::removeFile(std::string &fileName) {
     currentDir->removeChild(dir);
 }
 
-void FileSystemDataStructure::renameFile(std::string& initialFileName, std::string& newFileName){
+void FileSystemDataStructure::renameFile(const std::string &initialFileName, const std::string &newFileName){
 
     // guard makes sure the new filename isn't empty
     if(newFileName.empty())
