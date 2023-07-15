@@ -4,6 +4,8 @@ project(FileManagementSystem)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(FileManagementSystem
+        src/Utility/TreeNode.h
+
         src/UserInterface.cpp
         src/CommandProcessor.cpp
         src/FileSystemDataStructure.cpp
@@ -12,3 +14,4 @@ add_executable(FileManagementSystem
         src/main.cpp)
 
 target_include_directories(FileManagementSystem PUBLIC include)
+target_include_directories(FileManagementSystem PUBLIC src/Utility)

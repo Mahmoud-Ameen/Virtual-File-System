@@ -8,10 +8,13 @@
 enum class ErrorCode {
     InvalidFileName,
     InvalidDirName,
+    InvalidName,
     FileDoesntExist,
     DirDoesntExist,
     FileAlreadyExists,
-    DirAlreadyExists
+    DirAlreadyExists,
+    InvalidState,
+    DirNotEmpty
 
 };
 
