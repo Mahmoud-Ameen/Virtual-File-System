@@ -14,7 +14,7 @@ enum class ErrorCode {
     FileAlreadyExists,
     DirAlreadyExists,
     InvalidState,
-    DirNotEmpty
+    DirNotEmpty,
 
 };
 
