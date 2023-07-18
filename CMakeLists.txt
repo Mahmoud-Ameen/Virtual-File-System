@@ -7,7 +7,6 @@ add_executable(FileManagementSystem
         src/Utility/TreeNode.h
 
         src/UserInterface.cpp
-        src/CommandProcessor.cpp
         src/FileSystemDataStructure.cpp
         src/FileSystemOperations.cpp
         src/ErrorHandling.cpp
