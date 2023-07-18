@@ -59,8 +59,8 @@ It provides an opportunity to practice working with trees, handling command-line
 
 **Change Directory Command:**
 
-- Command: `cd <directory_name>`
-- Description: Changes the current directory to the specified directory name. Use ".." to move to the parent directory.
+- Command: `cd <path>`
+- Description: Changes the current directory to the specified directory path. Use ".." to move to the parent directory.
 - Example: `cd documents`
 
 **List Directories and Files Command:**
@@ -68,3 +68,30 @@ It provides an opportunity to practice working with trees, handling command-line
 - Command: `ls`
 - Description: Lists all directories and files within the current directory.
 - Example: `ls`
+
+**Rename File Command:**
+
+- Command: `rename <initial_file_name> <new_file_name>`
+- Description: Renames the file with the first name to the second name.
+- Example: `rename file.txt newfile.txt`
+
+**Rename Directory Command:**
+
+- Command: `renameDir <initial_dir_name> <new_dir_name>`
+- Description: Renames the dir with the first name to the second name.
+- Example: `renameDir dir.txt newDir.txt`
+
+**List Hierarchy Command:**
+
+- Command: `lsh`
+- Description: View the complete hierarchy of directories and files in the current directory.
+- Example: `lsh`
+
+**Help Command:**
+
+- Command: `help`
+- Description: Shows a list of the available commands.
+- Example: `help`
+
+
+
